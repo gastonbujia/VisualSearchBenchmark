@@ -68,10 +68,14 @@ def load_image(img_path, name, image_size='default'):
 
     return img
 
-def save_probability_map(output_path, image_name, probability_map, fixation_number, map_kind='probability_maps'):
-    # map_kind can be 'probability_maps' or 'entropy_maps'
-    # fe
-    save_path = path.join(output_path, map_kind, image_name[:-4])
+def save_probability_map(output_path, image_name, probability_map, fixation_number, map_type='probability_maps'):
+    """
+    Saves the probability map of a fixation in a csv file. 
+    
+        - map_type (str): can be 'probability_maps' or 'entropy_maps'
+       
+    """
+    save_path = path.join(output_path, map_type, image_name[:-4])
     if not path.exists(save_path):
         makedirs(save_path)
 
