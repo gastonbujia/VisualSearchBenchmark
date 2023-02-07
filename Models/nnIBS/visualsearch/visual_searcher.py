@@ -1,3 +1,4 @@
+from .models.elm_model      import ELMModel
 from .models.bayesian_model import BayesianModel
 from .models.greedy_model   import GreedyModel
 from Metrics.scripts import human_scanpath_prediction
@@ -159,8 +160,12 @@ class VisualSearcher:
     def initialize_model(self, search_model, norm_cdf_tolerance):
         if search_model == 'greedy':
             return GreedyModel(self.save_probability_maps)
-        else:
+        elif search_model == 'ibs':
             return BayesianModel(self.grid.size(), self.visibility_map, norm_cdf_tolerance, self.number_of_processes, self.save_probability_maps)
+        elif search_model == 'elm':
+            return ELMModel(self.grid.size(), self.visibility_map, self.save_probability_maps)
+        else:
+            raise ValueError('Invalid search model, valid options are: greedy, ibs, elm')
 
     def initialize_target_similarity_map(self, image, target, target_bbox, image_name):
         # Load corresponding module, which has the same name in lower case
