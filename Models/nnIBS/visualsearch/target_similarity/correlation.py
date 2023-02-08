@@ -2,6 +2,7 @@ from .target_similarity import TargetSimilarity
 from skimage.feature import match_template
 from skimage import transform, img_as_ubyte
 from ..utils import utils
+from numpy import clip
 
 """ Target similarity is computed via normalized cross correlation """
 
@@ -26,4 +27,6 @@ class Correlation(TargetSimilarity):
                                 cross_correlation[:, :, 1] * 0.7154 + \
                                 cross_correlation[:, :, 2] * 0.0721
         
+        # Clip values to [-1, 1] because of skimage correlation implementation
+        clip(cross_correlation, -1, 1, out=cross_correlation)
         return cross_correlation
