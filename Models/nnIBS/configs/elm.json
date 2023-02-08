@@ -1,6 +1,6 @@
 {
     "search_model"          : "elm",
-    "target_similarity"     : "geisler",
+    "target_similarity"     : "ivsn",
     "prior"                 : "deepgaze",
     "cell_size"             : 32,
     "seed"                  : 1234,
