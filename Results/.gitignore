@@ -16,3 +16,6 @@ Cumulative performance.png
 **/Metrics.json
 **/Multimatch against humans.png
 **/Cumulative performance.png
+
+# Ignore specific files in subdirectories
+rename_python.py
