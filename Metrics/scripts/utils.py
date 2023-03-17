@@ -47,7 +47,9 @@ def average_results(datasets_results_dict, save_path, filename):
     
     final_table = create_table(results_average)
     save_to_json(path.join(save_path, filename), results_average)
-
+    # extract the .json extension from the filename
+    final_table.to_csv(path.join(save_path, filename[:-4] + 'csv'))
+    
     return final_table
 
 def create_table(results_dict):
