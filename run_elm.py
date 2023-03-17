@@ -37,8 +37,8 @@ def main(dataset_name, config_name=constants.CONFIG_NAME, human_subject=None, me
         multimatch = 'mm' in metrics
         human_scanpath_prediction = 'hsp' in metrics
         # por ahora el elm y el nnIBS son lo mismo por como esta organizado el codigo
-        if models == 'elm':
-            models = ['nnIBS']
+        #if models == 'elm':
+        #    models = ['nnIBS']
         # el main de metrics espera una lista de modelos no un string de un solo modelo
         if ~isinstance(dataset_name,list):
             dataset_name = [dataset_name]
