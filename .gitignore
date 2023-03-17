@@ -3,3 +3,12 @@ __pycache__
 .vscode/launch.json
 Metrics/.vscode/launch.json
 data_images
+
+# Results of specific files
+**/Metrics.json
+**/Multimatch against humans.png
+**/Cumulative performance.png 
+**/Scores.json
+**/Ranking.png
+**/Table.png
+Metrics/Average_results.png
