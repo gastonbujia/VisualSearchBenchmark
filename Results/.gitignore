@@ -1,5 +1,9 @@
-# Results files until final
-*.jpg
+# Ignore CSV, PNG, and JSON files in this directory and its subdirectories
+*.csv
 *.png
 *.json
-*.csv
+
+# Ignore any CSV, PNG, and JSON files in subdirectories
+**/*.csv
+**/*.png
+**/*.json
