@@ -7,3 +7,12 @@
 **/*.csv
 **/*.png
 **/*.json
+
+# Ignore specific files in this directory and its subdirectories
+Metrics.json
+Multimatch against humans.png
+Cumulative performance.png
+
+**/Metrics.json
+**/Multimatch against humans.png
+**/Cumulative performance.png
