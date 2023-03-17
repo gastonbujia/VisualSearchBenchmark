@@ -22,7 +22,7 @@ def main(datasets, models, metrics, force_execution):
         multimatch = 'mm' in metrics
         human_scanpath_prediction = 'hsp' in metrics
 
-        metrics_module.main(datasets, models, cum_perf, multimatch, human_scanpath_prediction)
+        metrics_module.main(datasets, models, cum_perf, multimatch, human_scanpath_prediction, plot_results=False)
 
 if __name__ == "__main__":
     available_models   = utils.get_dirs(constants.MODELS_PATH)
