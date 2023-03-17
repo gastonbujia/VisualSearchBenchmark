@@ -5,7 +5,7 @@ from .scripts.cumulative_performance import CumulativePerformance
 from .scripts import utils
 from os import path
 
-def main(datasets, models, compute_cumulative_performance, compute_multimatch, compute_hsp):
+def main(datasets, models, compute_cumulative_performance, compute_multimatch, compute_hsp, plot_results=True):
     datasets_results = {}
     for dataset_name in datasets:
         dataset_path = path.join(constants.DATASETS_PATH, dataset_name)
@@ -56,10 +56,10 @@ def main(datasets, models, compute_cumulative_performance, compute_multimatch, c
 
         dataset_results = utils.load_dict_from_json(path.join(dataset_results_dir, constants.FILENAME))
         datasets_results[dataset_name] = dataset_results
-
-        cumulative_performance.plot(save_path=dataset_results_dir)
-        multimatch.plot(save_path=dataset_results_dir)
-        utils.plot_table(utils.create_table(dataset_results), title=dataset_name + ' dataset', save_path=dataset_results_dir, filename='Table.png')
+        if plot_results:
+            cumulative_performance.plot(save_path=dataset_results_dir)
+            multimatch.plot(save_path=dataset_results_dir)
+            utils.plot_table(utils.create_table(dataset_results), title=dataset_name + ' dataset', save_path=dataset_results_dir, filename='Table.png')
 
     if compute_cumulative_performance and compute_multimatch and compute_hsp:
         final_table = utils.average_results(datasets_results, save_path=constants.RESULTS_PATH, filename='Scores.json')
